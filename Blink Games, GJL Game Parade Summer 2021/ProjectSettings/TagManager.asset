@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerWeapon
   - CineMachine
+  - Ground
   layers:
   - Default
   - TransparentFX

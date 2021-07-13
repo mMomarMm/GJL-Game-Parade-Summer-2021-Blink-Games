@@ -8,9 +8,8 @@ public class Weapon : MonoBehaviour
     public float offset, startTimeBtwShots, shakeIntensity, shakeTime;
     public GameObject projectile;
     public Transform shotPoint;
-    private float timeBtwShots /*time between shots*/;
+    private float timeBtwShots, /*time between shots*/ rotZ;
     private Vector3 scale;
-    mouseCursor mouseC;
     CameraShake cc;
 
     private void Start()
@@ -18,39 +17,37 @@ public class Weapon : MonoBehaviour
         scale = GetComponent<Transform>().localScale;
         cc = GameObject.FindGameObjectWithTag("CineMachine").GetComponent<CameraShake>();
         scale = GetComponent<Transform>().localScale;
-        mouseC = GameObject.FindGameObjectWithTag("Respawn").GetComponent<mouseCursor>();
     }
     private void FixedUpdate()
     {
         // Handles the weapon rotation
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
     }
     void Update()
     {
-
-        if (timeBtwShots < 0) timeBtwShots -= Time.deltaTime;
-
-        if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.localPosition.z)
+        //Flips the weapon
+        if (rotZ < 89 && rotZ > -89)
         {
-            offset = 180;
-            scale.x = -1;
+            scale.y = 1;
             transform.localScale = scale;
         }
         else
         {
-            offset = 0;
-            scale.x = 1;
+            scale.y = -1;
             transform.localScale = scale;
         }
 
+        //Shooting Cooldown
+        if (timeBtwShots < 0) timeBtwShots -= Time.deltaTime;
+
+        //Shooting
         if (Input.GetMouseButton(0))
         {
-            StartCoroutine(mouseC.cursorAnim());
-            if (Player.bullets != 0)
+            if (BulletsText.bullets != 0)
             {
-                --Player.bullets;
+                BulletsText.bullets--;
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 cc.ShakeCamera(shakeIntensity, shakeTime);
                 timeBtwShots = startTimeBtwShots;

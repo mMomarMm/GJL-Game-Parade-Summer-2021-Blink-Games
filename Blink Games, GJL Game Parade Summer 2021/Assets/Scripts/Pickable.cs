@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Pickable : MonoBehaviour
 {
-    public GameObject weapon;
     bool animPos;
     public float posAmplitude;
     public float posSpeed;
     private float origY;
-
     private float startAnimOffset = 0;
     void Awake()
     {
@@ -33,15 +31,17 @@ public class Pickable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (transform.name == "ammo")
+            if (transform.tag == "EditorOnly")
             {
-                Player.bullets += Random.Range(1, 9);
-                Destroy(gameObject);
+                BulletsText.bullets += Random.Range(10, 100);
+                //Destroy(gameObject);
             }
             else
             {
+                GameObject weapon = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject;
                 weapon.SetActive(true);
                 //play a gun recharging sound
+                BulletsText.bullets += 100;
                 Destroy(gameObject);
             }
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class BulletsText : MonoBehaviour
 {
     TextMeshProUGUI t;
+    public static int bullets;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,6 @@ public class BulletsText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        t.text = "Bullets = " + Player.bullets;
+        t.text = "Bullets = " + bullets;
     }
 }

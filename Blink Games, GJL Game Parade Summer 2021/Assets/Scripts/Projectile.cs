@@ -31,4 +31,9 @@ public class Projectile : MonoBehaviour
             stillAlive = false;
         }
     }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("Ground")){
+            Destroy(gameObject);
+        }
+    }
 }
