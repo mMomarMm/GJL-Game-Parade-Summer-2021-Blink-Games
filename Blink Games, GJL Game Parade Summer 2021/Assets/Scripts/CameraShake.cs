@@ -5,13 +5,12 @@ using Cinemachine;
 
 public class CameraShake : MonoBehaviour
 {
-    CinemachineVirtualCamera c;
+    public CinemachineVirtualCamera c;
     CinemachineBasicMultiChannelPerlin cp;
     float shakeTimer, shakeTimerTotal, startingIntensity;
     // Start is called before the first frame update
     void Start()
     {
-        c = GetComponentInParent<CinemachineVirtualCamera>();
         cp = c.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 

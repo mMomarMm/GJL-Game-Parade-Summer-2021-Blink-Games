@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 999513890218969312}
   - component: {fileID: 999513890218969313}
   - component: {fileID: 999513890218969314}
-  - component: {fileID: 999513890218969315}
   m_Layer: 0
   m_Name: ammo
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999513890218969340}
   m_LocalRotation: {x: -0, y: -0, z: 0.9937687, w: 0.11146239}
-  m_LocalPosition: {x: -5.01, y: -0.51, z: -1}
+  m_LocalPosition: {x: -5.01, y: -0.15, z: -1}
   m_LocalScale: {x: -0.63559324, y: -0.50000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,22 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
---- !u!95 &999513890218969315
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999513890218969340}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7eb79758c26b53e4cb34ab3f1fd50c29, type: 2}
-  m_CullingMode: 2
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  posAmplitude: 0.55
+  posSpeed: 2

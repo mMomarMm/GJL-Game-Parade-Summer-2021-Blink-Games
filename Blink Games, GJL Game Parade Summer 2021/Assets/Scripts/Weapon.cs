@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         scale = GetComponent<Transform>().localScale;
-        cc = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
+        cc = GameObject.FindGameObjectWithTag("CineMachine").GetComponent<CameraShake>();
         scale = GetComponent<Transform>().localScale;
         mouseC = GameObject.FindGameObjectWithTag("Respawn").GetComponent<mouseCursor>();
     }
