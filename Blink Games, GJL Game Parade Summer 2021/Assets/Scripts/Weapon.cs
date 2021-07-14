@@ -6,13 +6,15 @@ using Cinemachine;
 public class Weapon : MonoBehaviour
 {
     public float offset, startTimeBtwShots, shakeIntensity, shakeTime;
+    public ParticleSystem muzzleFlash;
     public GameObject projectile;
     public Transform shotPoint;
-    private float timeBtwShots, /*time between shots*/ rotZ;
+    float timeBtwShots, /*time between shots*/ rotZ;
     private Vector3 scale;
     CameraShake cc;
     Animator an;
     Player p;
+
 
     private void Start()
     {
@@ -50,6 +52,7 @@ public class Weapon : MonoBehaviour
         {
             if (BulletsText.bullets != 0)
             {
+                muzzleFlash.Play();
                 p.Stand();
                 an.SetBool("Shoot", true);
                 an.SetBool("Jumping", false);
