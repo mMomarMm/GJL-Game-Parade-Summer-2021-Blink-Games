@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed;
+    public float speed, lifeTime;
     public bool stillAlive;
-    public float lifeTime;
+    float dir;
 
     void Start()
     {
+        dir = Player.dir;
         transform.Rotate(0, 0, -90);
         lifeTime = 2;
     }
@@ -20,7 +21,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * speed * Time.deltaTime * dir);
         lifeTime -= 1 * Time.deltaTime;
         if (lifeTime > 0)
         {
@@ -31,8 +32,10 @@ public class Projectile : MonoBehaviour
             stillAlive = false;
         }
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Ground")){
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Ground"))
+        {
             Destroy(gameObject);
         }
     }

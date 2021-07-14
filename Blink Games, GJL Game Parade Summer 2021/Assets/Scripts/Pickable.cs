@@ -31,19 +31,8 @@ public class Pickable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (transform.tag == "EditorOnly")
-            {
                 BulletsText.bullets += Random.Range(10, 100);
                 //Destroy(gameObject);
-            }
-            else
-            {
-                GameObject weapon = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject;
-                weapon.SetActive(true);
-                //play a gun recharging sound
-                BulletsText.bullets += 100;
-                Destroy(gameObject);
-            }
         }
     }
 }
