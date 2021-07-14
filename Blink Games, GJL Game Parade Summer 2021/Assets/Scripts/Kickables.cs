@@ -15,18 +15,17 @@ public class Kickables : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        inRange = other.CompareTag("Player");
+        if (other.CompareTag("Player")) inRange = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        inRange = other.CompareTag("Player");
+        if (other.CompareTag("Player")) inRange = false;
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G) && inRange)
         {
-            Debug.Log("o");
             BoxCollider2D b = GetComponent<BoxCollider2D>();
             PolygonCollider2D p = GetComponent<PolygonCollider2D>();
             b.enabled = false;
