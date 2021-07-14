@@ -1302,8 +1302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5.96
-  JumpForce: 9.15
-  DownForce: 0.7
+  JumpForce: 10
+  DownForce: 1.09
   crouchSize: {x: 2.5, y: 1.5}
   weaponCrouchPos: {x: 0, y: -0.8}
   sprite: {fileID: 6082911677437141149}

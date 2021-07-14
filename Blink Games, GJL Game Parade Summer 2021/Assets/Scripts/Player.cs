@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Ground")) Grounded = true;
+        if (other.CompareTag("Ground")) Grounded = true; an.SetBool("Jumping", false);
     }
 
     private void OnTriggerExit2D(Collider2D other)
