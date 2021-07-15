@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class mouseCursor : MonoBehaviour
 {
+    Vector2 ogScale;
     // Start is called before the first frame update
     void Start()
     {
+        ogScale = transform.localScale;
         Cursor.visible = false;
     }
 
@@ -19,8 +21,8 @@ public class mouseCursor : MonoBehaviour
     }
     public IEnumerator cursorAnim()
     {
-        transform.localScale = new Vector2(.5f, .5f);
-        yield return new WaitForSeconds(.02f);
-        transform.localScale = new Vector2(.6f, .6f);
+        transform.localScale = ogScale - (Vector2.one *  0.1f);
+        yield return new WaitForSecondsRealtime(.02f);
+        transform.localScale = ogScale;
     }
 }

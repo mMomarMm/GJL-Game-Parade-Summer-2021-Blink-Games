@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7076476686484668093}
   - component: {fileID: 7076476686484668094}
   - component: {fileID: -6289055539369324334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerBullet
   m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
@@ -145,5 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 55
-  lifeTime: 0.5
-  stillAlive: 1
+  lifeTime: 7.37
+  blood: {fileID: 6733024523867695842, guid: 159813a94f8b70843bd9bdd424a060ff, type: 3}
+  dir: 0

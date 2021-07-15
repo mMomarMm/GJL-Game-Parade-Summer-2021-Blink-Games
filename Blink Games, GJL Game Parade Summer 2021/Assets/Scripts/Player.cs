@@ -13,10 +13,11 @@ public class Player : MonoBehaviour
     Vector3 Scale, ogSize, weaponOgPos;
     bool Grounded;
     public BoxCollider2D BodyCollider;
-    public static float dir;
+    public static float dir, PlayerI; //looking direction
 
     void Start()
     {
+        PlayerI = 0;
         weaponOgPos = new Vector2(0, -0.36f);
         an = GetComponentInChildren<Animator>();
         ogSize = BodyCollider.size;
@@ -24,16 +25,23 @@ public class Player : MonoBehaviour
         Scale = Vector3.one;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         HorizontalMov();
         vertical = Input.GetAxisRaw("Vertical");
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Grounded)
+        if (PlayerI < 5) Kill();
+        else
         {
-            an.SetBool("Grounded", true);
+            an.SetFloat("IdleSpeed", 1);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (Grounded)
+        {            
             if (vertical == -1)
             {
                 Crouch();
@@ -41,44 +49,54 @@ public class Player : MonoBehaviour
             else
             {
                 Stand();
+                //jump
                 if (vertical == 1 || Input.GetKeyDown(KeyCode.Space))
                 {
                     an.SetBool("Jumping", true);
+                    an.SetBool("Running", false);
                     Grounded = false;
-                    StartCoroutine(Jump());
                     rb.velocity = new Vector2(rb.velocity.x, JumpForce);
                 }
             }
         }
         else
         {
-            an.SetBool("Grounded", false);
             if (vertical == -1)
             {
+                an.SetBool("Jumping", false);
+                an.SetBool("StartGlide", true);
                 an.SetBool("Gliding", true);
                 rb.velocity = new Vector2(rb.velocity.x, -DownForce);
+                StartCoroutine(wait());
+            } else
+            {
+                an.SetBool("Gliding", false);
             }
         }
     }
-    IEnumerator Jump()
-    {
-        yield return new WaitForSeconds(an.GetCurrentAnimatorStateInfo(0).length +
-        an.GetCurrentAnimatorStateInfo(0).normalizedTime);
+    IEnumerator wait(){
+        yield return new WaitForSeconds(0.21f);
+        an.SetBool("StartGlide", false);
     }
     void HorizontalMov()
     {
         if (horizontal != 0)
         {
-            dir = horizontal;
             an.SetBool("Running", true);
             rb.velocity = new Vector2(runSpeed * horizontal, rb.velocity.y);
-            Scale.x = horizontal;
+            dir = horizontal;
+            Scale.x = dir;
             transform.localScale = Scale;
         }
         else
         {
             an.SetBool("Running", false);
         }
+    }
+    void Kill()
+    {
+        PlayerI += Time.deltaTime;
+        an.SetFloat("IdleSpeed", 6);
     }
 
     void Crouch()
@@ -94,7 +112,6 @@ public class Player : MonoBehaviour
     {
         //maybe sound
         an.SetBool("Crouching", false);
-        an.SetBool("Running", false);
         sprite.transform.position = transform.position;
         BodyCollider.size = ogSize;
         BodyCollider.offset = Vector2.zero;
@@ -103,11 +120,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Ground")) Grounded = true; an.SetBool("Jumping", false);
+        if (other.CompareTag("Ground")) Grounded = true; an.SetBool("Jumping", false); an.SetBool("Grounded", true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Ground")) Grounded = false;
+        if (other.CompareTag("Ground")) Grounded = false; an.SetBool("Grounded", false);
     }
 }
