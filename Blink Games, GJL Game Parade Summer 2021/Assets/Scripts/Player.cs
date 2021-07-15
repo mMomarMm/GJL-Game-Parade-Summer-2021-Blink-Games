@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
                 an.SetBool("Jumping", false);
                 an.SetBool("StartGlide", true);
                 an.SetBool("Gliding", true);
-                rb.velocity = new Vector2(rb.velocity.x, -DownForce);
+                rb.velocity = new Vector2(rb.velocity.x*.8f, -DownForce);
                 StartCoroutine(wait());
             }
             else
@@ -126,11 +126,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Ground")) Grounded = true; an.SetBool("Jumping", false); an.SetBool("Grounded", true);
+        if (other.CompareTag("Ground")) Grounded = true; an.SetBool("Jumping", false); an.SetBool("Grounded", true); an.SetBool("Gliding", false);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Ground")) Grounded = false; an.SetBool("Grounded", false);
+        if (other.CompareTag("Ground")) Grounded = false; an.SetBool("Grounded", false); 
     }
 }

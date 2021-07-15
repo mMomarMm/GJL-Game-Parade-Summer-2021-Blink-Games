@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 2.5}
+  m_Size: {x: 0.6, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &-6289055539369324334
 MonoBehaviour:
@@ -146,4 +146,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 55
   lifeTime: 1
+  damage: 4
   blood: {fileID: 6733024523867695842, guid: 159813a94f8b70843bd9bdd424a060ff, type: 3}

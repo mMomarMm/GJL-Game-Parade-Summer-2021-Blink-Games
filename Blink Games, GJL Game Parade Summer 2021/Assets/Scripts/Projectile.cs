@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed, lifeTime;
+    public float speed, lifeTime, damage;
     public GameObject blood;
-    float dir, damage;
+    float dir;
 
     void Start()
     {
-        transform.Rotate(0, 0, -90);
         lifeTime = 2;
-        if (transform.tag == "PlayerWeapon")
+        if (damage == 5)
         {
-            damage = 5;
             dir = Player.dir;
         }
         else
         {
             //dir comes from enemies
-            damage = 4;
         }
         //transform.position += Vector3.up * speed * Time.deltaTime * dir;
     }
     private void Update()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime * dir);
+        transform.Translate(Vector2.right * speed * Time.deltaTime * dir);
         if (lifeTime > 0)
         {
             lifeTime -= Time.deltaTime;
