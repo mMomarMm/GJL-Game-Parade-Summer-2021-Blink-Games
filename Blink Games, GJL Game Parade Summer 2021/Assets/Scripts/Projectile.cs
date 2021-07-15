@@ -64,4 +64,3 @@ public class Projectile : MonoBehaviour
         }
     }
 }
-}
