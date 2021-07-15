@@ -54,13 +54,13 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            if (other.CompareTag("Player"))
-                else
-                    {
-                        GameObject effect = Instantiate(blood, transform.position + (Vector3.right * dir), blood.transform.rotation);
-                        //damage to player, enemies
-                        Destroy(gameObject);
-                    }
+            if (other.CompareTag("Player")) damage = 0; //filler
+            else
+            {
+                GameObject effect = Instantiate(blood, transform.position + (Vector3.right * dir), blood.transform.rotation);
+                //damage to player, enemies
+                Destroy(gameObject);
+            }
         }
     }
 }
