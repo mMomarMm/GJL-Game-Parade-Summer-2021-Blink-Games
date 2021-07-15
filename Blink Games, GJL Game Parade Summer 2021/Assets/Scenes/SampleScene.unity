@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 351172278}
   - component: {fileID: 351172280}
   - component: {fileID: 351172279}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5390,7 +5390,7 @@ GameObject:
   - component: {fileID: 577435725}
   - component: {fileID: 577435724}
   - component: {fileID: 577435728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -6797,7 +6797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1573066904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shotpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6894,7 +6894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1719115268}
   - component: {fileID: 1719115269}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6987,7 +6987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1820940327}
   - component: {fileID: 1820940328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7125,7 +7125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059216331}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WeaponMg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7282,7 +7282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4602629193145116082}
   - component: {fileID: 4602629193145116083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponMg
   m_TagString: Respawn
   m_Icon: {fileID: 0}
@@ -7332,7 +7332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4602629194551964438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shotpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7367,7 +7367,7 @@ GameObject:
   - component: {fileID: 4876246443802758377}
   - component: {fileID: 4876246443802758376}
   - component: {fileID: 4876246443802758378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -7478,7 +7478,7 @@ GameObject:
   - component: {fileID: 3289101181947769970}
   - component: {fileID: 6082911677437141151}
   - component: {fileID: 6082911677437141150}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,11 +9,14 @@ public class EnemiesBehavior : MonoBehaviour
     public GameObject bullet;
     public Transform shotPoint;
     Vector2 scale;
+    Player playerScript;
     bool attackMode, playerVisible; //has seen the player so it will be in attack mode
+    float Health = 10;
     void Start()
     {
         scale = transform.localScale;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -40,8 +43,15 @@ public class EnemiesBehavior : MonoBehaviour
         //p.dir = scale.x;
     }
 
-    void Dead()
+    public void Damaga(float damage)
     {
-        Player.PlayerI = 0;
+        if (Health <= 0)
+        {
+            playerScript.Kill();
+        } else
+        {
+        Health -= damage;
+            //play a sound that was shot
+        }
     }
 }

@@ -54,16 +54,14 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            if (damage == 5 && other.CompareTag("Player"))
-            {
-                Physics2D.IgnoreCollision(other.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
-            }
-            else
-            {
-                GameObject effect = Instantiate(blood, transform.position + (Vector3.right * dir), blood.transform.rotation);
-                //damage to player, enemies
-                Destroy(gameObject);
-            }
+            if (other.CompareTag("Player"))
+                else
+                    {
+                        GameObject effect = Instantiate(blood, transform.position + (Vector3.right * dir), blood.transform.rotation);
+                        //damage to player, enemies
+                        Destroy(gameObject);
+                    }
         }
     }
+}
 }

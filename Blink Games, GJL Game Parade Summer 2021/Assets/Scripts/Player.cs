@@ -13,11 +13,10 @@ public class Player : MonoBehaviour
     Vector3 Scale, ogSize, weaponOgPos;
     bool Grounded;
     public BoxCollider2D BodyCollider;
-    public static float dir, PlayerI; //looking direction
+    public static float dir; //looking direction
 
     void Start()
     {
-        PlayerI = 0;
         weaponOgPos = new Vector2(0, -0.36f);
         an = GetComponentInChildren<Animator>();
         ogSize = BodyCollider.size;
@@ -30,18 +29,12 @@ public class Player : MonoBehaviour
         HorizontalMov();
         vertical = Input.GetAxisRaw("Vertical");
         horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (PlayerI < 5) Kill();
-        else
-        {
-            an.SetFloat("IdleSpeed", 1);
-        }
     }
 
     void FixedUpdate()
     {
         if (Grounded)
-        {            
+        {
             if (vertical == -1)
             {
                 Crouch();
@@ -68,13 +61,15 @@ public class Player : MonoBehaviour
                 an.SetBool("Gliding", true);
                 rb.velocity = new Vector2(rb.velocity.x, -DownForce);
                 StartCoroutine(wait());
-            } else
+            }
+            else
             {
                 an.SetBool("Gliding", false);
             }
         }
     }
-    IEnumerator wait(){
+    IEnumerator wait()
+    {
         yield return new WaitForSeconds(0.21f);
         an.SetBool("StartGlide", false);
     }
@@ -93,10 +88,21 @@ public class Player : MonoBehaviour
             an.SetBool("Running", false);
         }
     }
-    void Kill()
+    public void Kill()
     {
-        PlayerI += Time.deltaTime;
-        an.SetFloat("IdleSpeed", 6);
+        float i = 0;
+        while (i < 6)
+        {
+            i += Time.deltaTime;
+            if (i < 5)
+            {
+                an.SetFloat("IdleSpeed", 6);
+            }
+            else
+            {
+                an.SetFloat("IdleSpeed", 1);
+            }
+        }
     }
 
     void Crouch()
