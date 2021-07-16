@@ -1,22 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Menu_Pause : MonoBehaviour
 {
-    public int nextScene;
+    public GameObject PausePanel, OptionsPanel;
     public void Pause()
     {
-        if (Time.timeScale == 0)
+        if (SceneManager.GetActiveScene().name != "MainMenu")
         {
-            Time.timeScale = 1;
-        }
-        else
-        {
-            Time.timeScale = 0;
+            if (Time.timeScale != 0)
+            {
+                PausePanel.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                PausePanel.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
-    public void SendToScene(int scene){
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) Pause();
+    }
+    public void SendToScene(int scene)
+    {
+        LoadingScene.LoadScene = scene;
+        SceneManager.LoadScene(1);
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

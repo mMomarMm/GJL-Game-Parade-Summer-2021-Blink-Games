@@ -22,7 +22,7 @@ public class Crates : MonoBehaviour
             BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
             Destroy(rb);
             Destroy(boxCollider2D);
-            transform.position= Physics2D.Raycast(transform.position, Vector2.down).point;
+            transform.position = new Vector3(transform.position.x, -0.89f, -1);
             Destroy(this);
         }
     }

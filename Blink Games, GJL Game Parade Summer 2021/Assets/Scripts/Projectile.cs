@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ground"))
+        if (other.gameObject.layer != 3)
         {
             Crates c = other.transform.GetComponent<Crates>();
             if (c)
