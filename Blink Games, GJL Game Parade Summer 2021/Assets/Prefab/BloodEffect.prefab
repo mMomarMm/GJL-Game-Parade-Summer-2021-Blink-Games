@@ -4873,7 +4873,7 @@ GameObject:
   - component: {fileID: 6733024523376264757}
   - component: {fileID: 6733024523376264758}
   m_Layer: 0
-  m_Name: Dripping (3)
+  m_Name: BloodPatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14657,7 +14657,7 @@ GameObject:
   - component: {fileID: 6733024524401440414}
   - component: {fileID: 6733024524401440415}
   m_Layer: 0
-  m_Name: Dripping (1)
+  m_Name: BloodPatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14739,7 +14739,7 @@ GameObject:
   - component: {fileID: 6733024524803263481}
   - component: {fileID: 6733024524803263482}
   m_Layer: 0
-  m_Name: Dripping (2)
+  m_Name: BloodPatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

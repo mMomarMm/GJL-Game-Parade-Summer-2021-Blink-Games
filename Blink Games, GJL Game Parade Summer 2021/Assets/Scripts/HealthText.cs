@@ -1,20 +1,19 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-public class BulletsText : MonoBehaviour
+public class HealthText : MonoBehaviour
 {
     Text t;
-    public static int bullets;
+    float Health;
     // Start is called before the first frame update
     void Start()
     {
-        bullets = 100;
         t = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        t.text = BulletsText.bullets.ToString();
+        t.text = Player.HealthPlayer.ToString();
     }
 }

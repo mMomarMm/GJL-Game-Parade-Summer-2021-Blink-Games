@@ -21,7 +21,8 @@ public class Pickable : MonoBehaviour
         /* position */
         if (animPos)
         {
-            Vector2 pos;
+            Vector3 pos;
+            pos.z = -1;
             pos.x = transform.position.x;
             pos.y = origY + posAmplitude * Mathf.Sin(posSpeed * Time.time + startAnimOffset);
             transform.position = pos;
@@ -31,8 +32,8 @@ public class Pickable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-                BulletsText.bullets += Random.Range(10, 100);
-                //Destroy(gameObject);
+            BulletsText.bullets += Random.Range(10, 100);
+            //Destroy(gameObject);
         }
     }
 }

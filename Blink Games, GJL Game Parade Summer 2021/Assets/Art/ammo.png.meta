@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: -6058229231348979346
     second: ammo_2
+  - first:
+      213: -1887406100666834301
+    second: ammo_3
+  - first:
+      213: -6089983605151344639
+    second: ammo_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -194,6 +200,48 @@ TextureImporter:
       bones: []
       spriteID: e696e89ac98dceba0800000000000000
       internalID: -6058229231348979346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammo_3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 667
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38229deb6269ec5e0800000000000000
+      internalID: -1887406100666834301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammo_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 300
+        width: 522
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108500f5d280c7ba0800000000000000
+      internalID: -6089983605151344639
       vertices: []
       indices: 
       edges: []

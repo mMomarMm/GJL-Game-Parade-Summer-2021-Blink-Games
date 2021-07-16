@@ -102,7 +102,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.6401404}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.38, y: 1.2802808}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -124,15 +124,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 3
+  m_LinearDrag: 0.1
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6620345349158276392
 MonoBehaviour:
   m_ObjectHideFlags: 0

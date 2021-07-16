@@ -30,10 +30,6 @@ public class EnemiesBehavior : MonoBehaviour
             if ((player.transform.position - transform.position).magnitude <= detectRange) attackMode = true;
         }
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawSphere(transform.position, detectRange);
-    }
 
     IEnumerator Shoot()
     {
@@ -47,10 +43,11 @@ public class EnemiesBehavior : MonoBehaviour
     {
         if (Health <= 0)
         {
-            playerScript.Kill();
-        } else
+            StartCoroutine(playerScript.Kill());
+        }
+        else
         {
-        Health -= damage;
+            Health -= damage;
             //play a sound that was shot
         }
     }

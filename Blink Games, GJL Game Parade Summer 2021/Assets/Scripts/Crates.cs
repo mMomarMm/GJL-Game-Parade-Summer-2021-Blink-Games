@@ -11,19 +11,19 @@ public class Crates : MonoBehaviour
         a.enabled = true;
         if (health > 0)
         {
+            a.SetTrigger("wasShot");
             health -= damage;
         }
         else
         {
             a.ResetTrigger("wasShot");
             a.SetBool("Dead", true);
-            transform.position = new Vector2(transform.position.x, transform.position.y + .23f);
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            Destroy(rb);
             BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
+            Destroy(rb);
             Destroy(boxCollider2D);
-            Crates c = GetComponent<Crates>();
-            Destroy(c);
+            transform.position= Physics2D.Raycast(transform.position, Vector2.down).point;
+            Destroy(this);
         }
     }
 }

@@ -1,17 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Kickables : MonoBehaviour
 {
     Animator a;
-    CapsuleCollider2D cap;
+    int health = 3;
     bool inRange;
+    public Text text;
     private void Start()
     {
-        cap = GetComponent<CapsuleCollider2D>();
         a = GetComponent<Animator>();
-        a.enabled = false;
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -26,15 +24,22 @@ public class Kickables : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G) && inRange)
         {
-            BoxCollider2D b = GetComponent<BoxCollider2D>();
-            PolygonCollider2D p = GetComponent<PolygonCollider2D>();
-            b.enabled = false;
-            p.enabled = false;
-            cap.enabled = true;
-            a.enabled = true;
-            transform.tag = "PlayerWeapon";
-            Kickables kickables = GetComponent<Kickables>();
-            kickables.enabled = false;
+            health--;
+            text.text = health.ToString();
+            if (health <= 0)
+            {
+                a.SetBool("Dead", true);
+                BoxCollider2D b = GetComponent<BoxCollider2D>();
+                CapsuleCollider2D p = GetComponent<CapsuleCollider2D>();
+                b.enabled = false;
+                p.enabled = false;
+                Destroy(text);
+                Destroy(this);
+            }
+            else
+            {
+                a.SetTrigger("Knock");
+            }
         }
     }
 }
