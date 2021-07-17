@@ -7,6 +7,8 @@ public class LoadingScene : MonoBehaviour
 {
     public Text porcentage, tip;
     public static int LoadScene;
+    AsyncOperation s;
+    float progress;
     string[] tips = new string[]{"Dying is bad", "Contamination is bad", "Plastic bags are made out of plastic",
     "Apples taste like apples", "Game jams are streesfull", "Many gramatical mistakes were made",
     "Subscribe to my youtube... pls", "If you get shot your health decreases", "A computer mouse isn't a mouse",
@@ -18,21 +20,29 @@ public class LoadingScene : MonoBehaviour
 
     void Start()
     {
+        progress = 0;
+        s = SceneManager.LoadSceneAsync(LoadScene);
+        s.allowSceneActivation = false;
+        tip.text = tips[Random.Range(0, tips.Length)];
         StartCoroutine(l());
     }
 
-    //gamelevel
+    //Scene oader
     IEnumerator l()
     {
-        tip.text = tips[Random.Range(0, tips.Length)];
-        AsyncOperation s = SceneManager.LoadSceneAsync(LoadScene);
-        s.allowSceneActivation = false;
         while (s.progress < 0.9f)
         {
-            porcentage.text = (s.progress * 100) + "%";
-            yield return new WaitForEndOfFrame();
+            progress = s.progress;
+            yield return null;
         }
-        yield return new WaitForSecondsRealtime(5);
+        progress = 1;
+        yield return new WaitForSecondsRealtime(4);
+        yield return new WaitForEndOfFrame();
         s.allowSceneActivation = true;
+    }
+    //Progress text
+    private void Update()
+    {
+        porcentage.text = (progress * 100) + "%";
     }
 }
