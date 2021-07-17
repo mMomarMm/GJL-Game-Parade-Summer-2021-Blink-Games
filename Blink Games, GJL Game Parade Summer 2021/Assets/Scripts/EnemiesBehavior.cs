@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesBehavior : MonoBehaviour
+public class EnemiesBehavior : MonoBehaviour, TakeDamage
 {
     public float detectRange;
     GameObject player;
@@ -10,10 +10,12 @@ public class EnemiesBehavior : MonoBehaviour
     public Transform shotPoint;
     Vector2 scale;
     Player playerScript;
-    bool attackMode, playerVisible; //has seen the player so it will be in attack mode
+    bool attackMode = false, playerVisible; //has seen the player so it will be in attack mode
     float Health = 10;
+    LayerMask GroundL;
     void Start()
     {
+        GroundL = LayerMask.GetMask("Ground");
         scale = transform.localScale;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<Player>();
@@ -22,13 +24,19 @@ public class EnemiesBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position,
+        detectRange, GroundL);
         if (attackMode)
         {
+            if (hit) { }
         }
-        else
-        {
-            if ((player.transform.position - transform.position).magnitude <= detectRange) attackMode = true;
-        }
+        else if (hit) attackMode = true;
+        else { Patrol(); }
+    }
+
+    void Patrol()
+    {
+
     }
 
     IEnumerator Shoot()
@@ -39,7 +47,7 @@ public class EnemiesBehavior : MonoBehaviour
         //p.dir = scale.x;
     }
 
-    public void Damaga(float damage)
+    public void Damage(float damage, GameObject effect)
     {
         if (Health <= 0)
         {

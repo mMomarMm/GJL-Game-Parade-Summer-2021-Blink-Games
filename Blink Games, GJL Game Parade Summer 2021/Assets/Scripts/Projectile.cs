@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float speed, lifeTime, damage;
     public GameObject blood;
     public LayerMask ground;
+    GameObject effect;
     float dir;
 
     void Start()
@@ -36,30 +37,24 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ground"))
+        TakeDamage takeDamage = other.GetComponent<TakeDamage>();
+        if (takeDamage != null)
         {
-            Crates c = other.transform.GetComponent<Crates>();
-            if (c)
+            if (!other.CompareTag("Ground"))
             {
-                c.Damage(damage);
+                effect = Instantiate(blood, transform.position + Vector3.right, blood.transform.rotation);
+                effect.transform.parent = other.gameObject.transform;
                 Destroy(gameObject);
             }
             else
             {
-                //it hit the ground and do sound or effect idk
                 Destroy(gameObject);
             }
+            takeDamage.Damage(damage, effect);
         }
         else
         {
-            if (other.CompareTag("Player")) damage = 0; //filler
-            else
-            {
-                GameObject effect = Instantiate(blood, transform.position + Vector3.right, blood.transform.rotation);
-                effect.transform.parent = other.gameObject.transform;
-                //damage to player, enemies
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }

@@ -10,10 +10,6 @@ public class mouseCursor : MonoBehaviour
         ogScale = transform.localScale;
         Cursor.visible = false;
     }
-    private void OnDisable()
-    {
-        Cursor.visible = true;
-    }
 
     // Update is called once per frame
     void Update()

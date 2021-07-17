@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crates : MonoBehaviour
+public class Crates : MonoBehaviour, TakeDamage
 {
     public Animator a;
     float health = 25;
-    public void Damage(float damage)
+    public void Damage(float damage, GameObject effect)
     {
         a.enabled = true;
         if (health > 0)

@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, TakeDamage
 {
-    float vertical, horizontal;
+    public Vector2 crouchSize, weaponCrouchPos;
+    public GameObject sprite, weapon;
+    public BoxCollider2D BodyCollider;
     public float runSpeed, JumpForce, DownForce;
+    public static float dir, HealthPlayer; //looking direction
+    float vertical, horizontal, regenProgress;
     Rigidbody2D rb;
     Animator an;
     LayerMask ground;
-    public Vector2 crouchSize, weaponCrouchPos;
-    public GameObject sprite, weapon;
     Vector3 Scale, ogSize, weaponOgPos;
-    public BoxCollider2D BodyCollider;
-    public static float dir, HealthPlayer; //looking direction
-
+    List<GameObject> blood = new List<GameObject>();
     void Start()
     {
         HealthPlayer = 100;
@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
         ogSize = BodyCollider.size;
         rb = GetComponent<Rigidbody2D>();
         Scale = Vector3.one;
+        dir = Scale.x;
     }
 
     private void Update()
@@ -33,6 +34,18 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (HealthPlayer < 100)
+        {
+            regenProgress += Time.deltaTime;
+            if (regenProgress >= 5f)
+            {
+                regenProgress = 0;
+                Mathf.Clamp(HealthPlayer += 1, 0, 100);
+                GameObject o = blood[0];
+                blood.Remove(o);
+                Destroy(o);
+            }
+        }
         HorizontalMov();
         RaycastHit2D box = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - BodyCollider.size.y / 2),
                 new Vector2(BodyCollider.size.x - .1f, .1f), 0, Vector2.right * dir, .1f, ground);
@@ -90,6 +103,20 @@ public class Player : MonoBehaviour
         else
         {
             an.SetBool("Running", false);
+        }
+    }
+    public void Damage(float damage, GameObject effect)
+    {
+        HealthPlayer -= damage;
+        if (HealthPlayer <= 0)
+        {
+            //Death anim
+            Destroy(this);
+        }
+        else
+        {
+            regenProgress = 0;
+            blood.Add(effect);
         }
     }
     public IEnumerator Kill()
