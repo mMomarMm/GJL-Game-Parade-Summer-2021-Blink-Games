@@ -1,15 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class mouseCursor : MonoBehaviour
 {
     Vector2 ogScale;
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         ogScale = transform.localScale;
         Cursor.visible = false;
+    }
+    private void OnDisable()
+    {
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
@@ -21,7 +24,7 @@ public class mouseCursor : MonoBehaviour
     }
     public IEnumerator cursorAnim()
     {
-        transform.localScale = ogScale - (Vector2.one *  0.1f);
+        transform.localScale = ogScale - (Vector2.one * 0.1f);
         yield return new WaitForSecondsRealtime(.02f);
         transform.localScale = ogScale;
     }

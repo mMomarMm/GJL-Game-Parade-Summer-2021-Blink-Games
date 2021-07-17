@@ -1,0 +1,816 @@
+fileFormatVersion: 2
+guid: 1eb301c4da8ff2045b0ec6bc99dc8384
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8045115652650723695
+    second: plasticbag 1_0
+  - first:
+      213: -1394563811374900746
+    second: plasticbag 1_1
+  - first:
+      213: 1870616364216013796
+    second: plasticbag 1_2
+  - first:
+      213: -5507016639579647239
+    second: plasticbag 1_3
+  - first:
+      213: 6643588757961175404
+    second: plasticbag 1_4
+  - first:
+      213: -9082738199681963288
+    second: plasticbag 1_5
+  - first:
+      213: 6653028412115429112
+    second: plasticbag 1_6
+  - first:
+      213: 5520224089932199208
+    second: plasticbag 1_7
+  - first:
+      213: -1729354166902936464
+    second: plasticbag 1_8
+  - first:
+      213: -7184397619055584763
+    second: plasticbag 1_9
+  - first:
+      213: 2796701627169464081
+    second: plasticbag 1_10
+  - first:
+      213: -4255092845019679898
+    second: plasticbag 1_11
+  - first:
+      213: 3432874255762618275
+    second: plasticbag 1_12
+  - first:
+      213: -7983689460656029361
+    second: plasticbag 1_13
+  - first:
+      213: 4048558798803446376
+    second: plasticbag 1_14
+  - first:
+      213: -5573826718373562309
+    second: plasticbag 1_15
+  - first:
+      213: -7616097834907586048
+    second: plasticbag 1_16
+  - first:
+      213: 1599406505907840334
+    second: plasticbag 1_17
+  - first:
+      213: -713110808412516630
+    second: plasticbag 1_18
+  - first:
+      213: 4397630394459314186
+    second: plasticbag 1_19
+  - first:
+      213: 5686297576388458449
+    second: plasticbag 1_20
+  - first:
+      213: -5907052837105268652
+    second: plasticbag 1_21
+  - first:
+      213: 4130114840464069670
+    second: plasticbag 1_22
+  - first:
+      213: -1622694878003373100
+    second: plasticbag 1_23
+  - first:
+      213: -8305025104026674235
+    second: plasticbag 1_24
+  - first:
+      213: 534121460945729138
+    second: plasticbag 1_25
+  - first:
+      213: -8868665701379422450
+    second: plasticbag 1_26
+  - first:
+      213: -2642288444762525532
+    second: plasticbag 1_27
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: plasticbag 1_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1245
+        width: 233
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f696e2daf0ef5af60800000000000000
+      internalID: 8045115652650723695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_1
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1245
+        width: 231
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f9526e2a9385ace0800000000000000
+      internalID: -1394563811374900746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_2
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 1245
+        width: 231
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3d02c1ca3c5f910800000000000000
+      internalID: 1870616364216013796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_3
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 1245
+        width: 231
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f290b13b852393b0800000000000000
+      internalID: -5507016639579647239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_4
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1035
+        width: 235
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61fd00b6c4c23c50800000000000000
+      internalID: 6643588757961175404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_5
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1033
+        width: 234
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eae514dab1a3f180800000000000000
+      internalID: -9082738199681963288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_6
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 1035
+        width: 163
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f6a8b0771e445c50800000000000000
+      internalID: 6653028412115429112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_7
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1037
+        width: 173
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82576f8ff86cb9c40800000000000000
+      internalID: 5520224089932199208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_8
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 836
+        width: 180
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ca8e63c891008e0800000000000000
+      internalID: -1729354166902936464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_9
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 836
+        width: 254
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a97071e64eb4c90800000000000000
+      internalID: -7184397619055584763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_10
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 836
+        width: 268
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f5136ff41efc620800000000000000
+      internalID: 2796701627169464081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_11
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 832
+        width: 264
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 663bb461a9fd2f4c0800000000000000
+      internalID: -4255092845019679898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_12
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 620
+        width: 230
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a7705d82f404af20800000000000000
+      internalID: 3432874255762618275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_13
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 619
+        width: 231
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4141942cbc343190800000000000000
+      internalID: -7983689460656029361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_14
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 620
+        width: 229
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a26fef6ce5f2830800000000000000
+      internalID: 4048558798803446376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_15
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 620
+        width: 228
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3833cb812ac5a2b0800000000000000
+      internalID: -5573826718373562309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_16
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 620
+        width: 228
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00236b7fe5f2e4690800000000000000
+      internalID: -7616097834907586048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_17
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 620
+        width: 230
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e45e51c3ebb323610800000000000000
+      internalID: 1599406505907840334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 415
+        width: 230
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee841b7f758a16f0800000000000000
+      internalID: -713110808412516630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_19
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 415
+        width: 231
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08553b4b85870d30800000000000000
+      internalID: 4397630394459314186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_20
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 416
+        width: 230
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d77cc7b489c9ee40800000000000000
+      internalID: 5686297576388458449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_21
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 415
+        width: 230
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45880e6ddbee50ea0800000000000000
+      internalID: -5907052837105268652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_22
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 213
+        width: 230
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6241e6ba09d115930800000000000000
+      internalID: 4130114840464069670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_23
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 213
+        width: 217
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db53c91b970b79e0800000000000000
+      internalID: -1622694878003373100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_24
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 271
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cbd9c77baf9ebc80800000000000000
+      internalID: -8305025104026674235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_25
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 213
+        width: 217
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276359a83a4996700800000000000000
+      internalID: 534121460945729138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_26
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 213
+        width: 217
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e07c695688b2ce480800000000000000
+      internalID: -8868665701379422450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasticbag 1_27
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 271
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a07fcfa8a4b45bd0800000000000000
+      internalID: -2642288444762525532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

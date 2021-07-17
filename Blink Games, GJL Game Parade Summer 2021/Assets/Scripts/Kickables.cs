@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 public class Kickables : MonoBehaviour
@@ -31,9 +30,7 @@ public class Kickables : MonoBehaviour
                 a.SetBool("Dead", true);
                 BoxCollider2D b = GetComponent<BoxCollider2D>();
                 CapsuleCollider2D p = GetComponent<CapsuleCollider2D>();
-                CircleCollider2D circleCollider2D = GetComponent<CircleCollider2D>();
                 b.enabled = false;
-                circleCollider2D.enabled = false;
                 p.enabled = false;
                 Destroy(text);
                 Destroy(this);

@@ -148,3 +148,6 @@ MonoBehaviour:
   lifeTime: 7.37
   damage: 5
   blood: {fileID: 6733024523867695842, guid: 159813a94f8b70843bd9bdd424a060ff, type: 3}
+  ground:
+    serializedVersion: 2
+    m_Bits: 8

@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed, lifeTime, damage;
     public GameObject blood;
+    public LayerMask ground;
     float dir;
 
     void Start()
@@ -35,7 +36,7 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer != 3)
+        if (other.CompareTag("Ground"))
         {
             Crates c = other.transform.GetComponent<Crates>();
             if (c)
@@ -54,7 +55,8 @@ public class Projectile : MonoBehaviour
             if (other.CompareTag("Player")) damage = 0; //filler
             else
             {
-                GameObject effect = Instantiate(blood, transform.position + (Vector3.right * dir), blood.transform.rotation);
+                GameObject effect = Instantiate(blood, transform.position + Vector3.right, blood.transform.rotation);
+                effect.transform.parent = other.gameObject.transform;
                 //damage to player, enemies
                 Destroy(gameObject);
             }
