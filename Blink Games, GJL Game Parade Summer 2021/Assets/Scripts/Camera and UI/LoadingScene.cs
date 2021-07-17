@@ -18,18 +18,18 @@ public class LoadingScene : MonoBehaviour
 
     void Start()
     {
-        tip.text = tips[Random.Range(0, tips.Length)];
-        StartCoroutine(LoadAsyncOperation());
+        StartCoroutine(l());
     }
 
     //gamelevel
-    IEnumerator LoadAsyncOperation()
+    IEnumerator l()
     {
-        AsyncOperation s = SceneManager.LoadSceneAsync(0);
+        tip.text = tips[Random.Range(0, tips.Length)];
+        AsyncOperation s = SceneManager.LoadSceneAsync(LoadScene);
         s.allowSceneActivation = false;
-        while (s.progress < .9)
+        while (s.progress < 0.9f)
         {
-            porcentage.text = s.progress * 100 + "%";
+            porcentage.text = (s.progress * 100) + "%";
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSecondsRealtime(5);
