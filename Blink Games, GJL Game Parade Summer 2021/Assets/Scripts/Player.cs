@@ -51,10 +51,10 @@ public class Player : MonoBehaviour, TakeDamage
         }
 
         HorizontalMov();
-        
+
         if (Physics2D.Raycast(transform.position, Vector2.down, 1.27f, ground)) // is touching ground
         {
-            an.SetBool("Grounded", true); 
+            an.SetBool("Grounded", true);
             an.SetBool("Gliding", false);
             an.SetBool("Jumping", false);
             if (vertical == -1)
@@ -133,6 +133,7 @@ public class Player : MonoBehaviour, TakeDamage
         }
         else
         {
+            effect.transform.position = transform.position;
             regenProgress = 0;
             blood.Add(effect);
         }
