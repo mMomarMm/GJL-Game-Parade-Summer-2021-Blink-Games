@@ -13,7 +13,7 @@ public class LoadingScene : MonoBehaviour
     "Apples taste like apples", "Game jams are streesfull", "Do you like the font?",
     "Subscribe to my youtube... pls", "If you get shot your health decreases", "A computer mouse isn't a mouse",
     "Inalambric computer mouse should be call hamster", "Drinking water will hydrate you",
-    "You can hide behing crates if you crouch", "Enemies will try to cover fire, wait till they reload to attack"};
+    "You can hide behing crates if you crouch", "Enemies will try to cover fire, wait till they reload to attack", "Shoot first, this enemies are bad coded"};
 
     // Start is called before the first frame update
 
