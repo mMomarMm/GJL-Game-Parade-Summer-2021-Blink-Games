@@ -27,6 +27,8 @@ public class Kickables : MonoBehaviour
             text.text = health.ToString();
             if (health <= 0)
             {
+                Player playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+                StartCoroutine(playerScript.Kill());
                 a.SetBool("Dead", true);
                 BoxCollider2D b = GetComponent<BoxCollider2D>();
                 CapsuleCollider2D p = GetComponent<CapsuleCollider2D>();

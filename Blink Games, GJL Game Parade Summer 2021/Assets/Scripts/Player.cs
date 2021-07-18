@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, TakeDamage
 {
     public Vector2 crouchSize, weaponCrouchPos;
-    public GameObject sprite, weapon;
+    public GameObject sprite, weapon, restartButton;
     public BoxCollider2D BodyCollider;
     public float runSpeed, JumpForce, DownForce;
     public static float dir, HealthPlayer; //looking direction
@@ -34,24 +34,29 @@ public class Player : MonoBehaviour, TakeDamage
     }
     void FixedUpdate()
     {
-        if (HealthPlayer < 100)
+        if (HealthPlayer < 125)
         {
             regenProgress += Time.deltaTime;
-            if (regenProgress >= 5f)
+            if (regenProgress >= 1.5f)
             {
                 regenProgress = 0;
-                Mathf.Clamp(HealthPlayer += 1, 0, 100);
-                GameObject o = blood[0];
-                blood.Remove(o);
-                Destroy(o);
+                Mathf.Clamp(HealthPlayer += 1, 0, 125);
+                if (blood.Count > 0)
+                {
+                    GameObject o = blood[0];
+                    blood.Remove(o);
+                    Destroy(o);
+                }
             }
         }
+
         HorizontalMov();
-        RaycastHit2D box = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - BodyCollider.size.y / 2),
-                new Vector2(BodyCollider.size.x - .1f, .1f), 0, Vector2.right * dir, .1f, ground);
-        if (box) // is touching ground)
+        
+        if (Physics2D.Raycast(transform.position, Vector2.down, 1.27f, ground)) // is touching ground
         {
-            an.SetBool("Grounded", true); an.SetBool("Gliding", false);
+            an.SetBool("Grounded", true); 
+            an.SetBool("Gliding", false);
+            an.SetBool("Jumping", false);
             if (vertical == -1)
             {
                 Crouch();
@@ -110,7 +115,20 @@ public class Player : MonoBehaviour, TakeDamage
         HealthPlayer -= damage;
         if (HealthPlayer <= 0)
         {
-            //Death anim
+            //Dead, animator bool dead is iverted
+            restartButton.SetActive(true);
+            foreach (AnimatorControllerParameter parameter in an.parameters)
+            {
+                if (parameter.type == AnimatorControllerParameterType.Bool)
+                    an.SetBool(parameter.name, false);
+            }
+            an.SetTrigger("Dead");
+            for (int pi = 0; pi <= blood.Count; pi++)
+            {
+                GameObject o = blood[pi];
+                blood.Remove(o);
+                Destroy(o);
+            }
             Destroy(this);
         }
         else

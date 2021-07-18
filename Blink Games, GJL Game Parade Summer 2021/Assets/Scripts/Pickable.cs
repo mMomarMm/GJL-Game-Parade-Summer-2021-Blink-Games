@@ -33,7 +33,7 @@ public class Pickable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             BulletsText.bullets += Random.Range(10, 100);
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

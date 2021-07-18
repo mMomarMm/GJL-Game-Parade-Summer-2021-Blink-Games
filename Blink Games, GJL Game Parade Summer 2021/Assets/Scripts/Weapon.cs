@@ -41,10 +41,6 @@ public class Weapon : MonoBehaviour
                 cc.ShakeCamera(shakeIntensity, shakeTime);
                 timeBtwShots = startTimeBtwShots;
             }
-            else
-            {
-                //play a sound
-            }
         }
         else
         {

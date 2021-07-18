@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed, lifeTime, damage;
+    public float speed, lifeTime, damage, dir;
     public GameObject blood;
     public LayerMask ground;
     GameObject effect;
-    float dir;
+
 
     void Start()
     {
@@ -16,12 +16,7 @@ public class Projectile : MonoBehaviour
         if (damage == 5)
         {
             dir = Player.dir;
-        }
-        else
-        {
-            //dir comes from enemies
-        }
-        //transform.position += Vector3.up * speed * Time.deltaTime * dir;
+        }        
     }
     private void Update()
     {

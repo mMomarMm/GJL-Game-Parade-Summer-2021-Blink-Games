@@ -8,7 +8,7 @@ public class BulletsText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bullets = 100;
+        bullets = 150;
         t = GetComponent<Text>();
     }
 

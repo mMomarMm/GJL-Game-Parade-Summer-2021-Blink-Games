@@ -22,7 +22,7 @@ public class Crates : MonoBehaviour, TakeDamage
             BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
             Destroy(rb);
             Destroy(boxCollider2D);
-            transform.position = new Vector3(transform.position.x, -0.89f, -1);
+            transform.position = new Vector3(transform.position.x, -1.65f, -1);
             Destroy(this);
         }
     }
