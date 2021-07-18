@@ -60,7 +60,7 @@ public class Menu_Pause : MonoBehaviour
             ControlsMenu.SetActive(true);
         }
     }
-    public static float I2;
+    public static float I2=.2f;
     public void Volume(float i)
     {
         AudioSource Audio = GameObject.FindGameObjectWithTag("Respawn").GetComponent<AudioSource>();

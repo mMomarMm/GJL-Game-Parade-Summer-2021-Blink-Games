@@ -257,6 +257,7 @@ MonoBehaviour:
   detectRange: 18
   bullet: {fileID: 7076476686484668082, guid: 579ae3fc00b4c934081697863e174e05, type: 3}
   ammoDrop: {fileID: 999513890218969340, guid: 6bb51199711f5a04f9aa360a0b1ad03a, type: 3}
+  canPatrol: 1
   shotPoint: {fileID: 3091047062669963579}
   muzzleFlash: {fileID: 3091047063851989851}
   Layers:

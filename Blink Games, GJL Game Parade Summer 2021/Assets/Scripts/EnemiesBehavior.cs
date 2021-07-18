@@ -7,6 +7,7 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
     public float detectRange;
     GameObject player;
     public GameObject bullet, ammoDrop;
+    public bool canPatrol;
     public Transform shotPoint;
     public ParticleSystem muzzleFlash;
     Animator animator;
@@ -72,7 +73,7 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
             }
         }
         else if (hit && hit.collider.CompareTag("Player")) attackMode = true;
-        else { Patrol(); }
+        else { if(canPatrol) Patrol(); }
     }
     IEnumerator Wait()
     {
