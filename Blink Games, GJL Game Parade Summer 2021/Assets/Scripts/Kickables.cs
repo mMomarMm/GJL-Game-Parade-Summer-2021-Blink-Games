@@ -8,7 +8,7 @@ public class Kickables : MonoBehaviour
     public Text text;
     private void Start()
     {
-        a = GetComponent<Animator>();
+        a = GetComponentInChildren<Animator>();
     }
     private void OnTriggerStay2D(Collider2D other)
     {

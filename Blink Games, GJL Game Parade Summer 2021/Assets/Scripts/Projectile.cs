@@ -8,15 +8,13 @@ public class Projectile : MonoBehaviour
     public GameObject blood;
     public LayerMask ground;
     GameObject effect;
-
-
     void Start()
     {
         lifeTime = 2;
         if (damage == 5)
         {
             dir = Player.dir;
-        }        
+        }
     }
     private void Update()
     {

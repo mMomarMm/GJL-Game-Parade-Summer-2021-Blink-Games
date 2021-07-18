@@ -97,7 +97,6 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
 
     IEnumerator Shoot()
     {
-
         animator.SetBool("Reload", false);
         muzzleFlash.Play();
         yield return new WaitForSeconds(.5f);
@@ -126,6 +125,10 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
             {
                 if (parameter.type == AnimatorControllerParameterType.Bool)
                     animator.SetBool(parameter.name, false);
+            }
+            transform.GetChild(0).position = new Vector3(transform.position.x, -.99f, transform.position.z);
+            for(int i=1; i< transform.childCount; i++){
+            Destroy(transform.GetChild(i).gameObject);
             }
             animator.SetTrigger("Dead");
             Destroy(this);

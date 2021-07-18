@@ -48,7 +48,7 @@ public class Menu_Pause : MonoBehaviour
     }
     public void AudioActivation()
     {
-        AudioSource Audio = GameObject.FindGameObjectWithTag("Respawn").transform.GetComponentInChildren<AudioSource>();
+        AudioSource Audio = GameObject.FindGameObjectWithTag("Respawn").GetComponent<AudioSource>();
         if (Audio.isPlaying) { Audio.Pause(); AudioState.text = "Sound off"; }
         else { Audio.UnPause(); AudioState.text = "Sound on"; }
     }
@@ -60,9 +60,11 @@ public class Menu_Pause : MonoBehaviour
             ControlsMenu.SetActive(true);
         }
     }
+    public static float I2;
     public void Volume(float i)
     {
-        AudioSource Audio = GameObject.FindGameObjectWithTag("Respawn").transform.GetComponentInChildren<AudioSource>();
-        Audio.volume = i * i;
+        AudioSource Audio = GameObject.FindGameObjectWithTag("Respawn").GetComponent<AudioSource>();
+        I2 = i * i;
+        Audio.volume = I2;
     }
 }

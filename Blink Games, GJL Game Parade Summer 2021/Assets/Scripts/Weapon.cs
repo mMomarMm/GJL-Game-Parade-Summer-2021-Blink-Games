@@ -14,8 +14,6 @@ public class Weapon : MonoBehaviour
     CameraShake cc;
     Animator an;
     Player p;
-
-
     private void Start()
     {
         p = GetComponentInParent<Player>();
@@ -30,8 +28,9 @@ public class Weapon : MonoBehaviour
         //Shooting
         if (Input.GetMouseButton(0))
         {
-            if (BulletsText.bullets != 0)
+            if (BulletsText.bullets > 0)
             {
+                
                 muzzleFlash.Play();
                 p.Stand();
                 Instantiate(projectile, shotPoint.position, transform.rotation);
@@ -47,5 +46,4 @@ public class Weapon : MonoBehaviour
             an.SetBool("Shoot", false);
         }
     }
-
 }
