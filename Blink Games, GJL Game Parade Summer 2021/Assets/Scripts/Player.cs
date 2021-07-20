@@ -17,7 +17,7 @@ public class Player : MonoBehaviour, TakeDamage
     List<GameObject> blood = new List<GameObject>();
     void Start()
     {
-        HealthPlayer = 150;
+        HealthPlayer = 90;
         ground = LayerMask.GetMask("Ground");
         weaponOgPos = new Vector2(0, -0.36f);
         an = GetComponentInChildren<Animator>();
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour, TakeDamage
     }
     void FixedUpdate()
     {
-        if (HealthPlayer < 125)
+        if (HealthPlayer < 90)
         {
             regenProgress += Time.deltaTime;
             if (regenProgress >= 1.5f)
@@ -116,6 +116,7 @@ public class Player : MonoBehaviour, TakeDamage
         if (HealthPlayer <= 0)
         {
             //Dead, animator bool dead is iverted
+            StartCoroutine(dead());
             restartButton.SetActive(true);
             mouse.SetActive(true);
             foreach (AnimatorControllerParameter parameter in an.parameters)
@@ -136,7 +137,6 @@ public class Player : MonoBehaviour, TakeDamage
                 EnemiesBehavior e = en[pi].GetComponent<EnemiesBehavior>();
                 e.Stop();
             }
-            Destroy(gameObject);
         }
         else
         {
@@ -180,5 +180,10 @@ public class Player : MonoBehaviour, TakeDamage
         BodyCollider.size = ogSize;
         BodyCollider.offset = Vector2.zero;
         weapon.transform.localPosition = weaponOgPos;
+    }
+    IEnumerator dead()
+    {
+        yield return new WaitForSecondsRealtime(.5f);
+        Destroy(gameObject);
     }
 }

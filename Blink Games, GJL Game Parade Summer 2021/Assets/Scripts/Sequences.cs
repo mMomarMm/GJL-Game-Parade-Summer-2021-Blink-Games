@@ -6,7 +6,7 @@ public class Sequences : MonoBehaviour
 {
     public Player player;
     public Text text;
-    public GameObject image, Mainmenu;
+    public GameObject image, Mainmenu, mouse;
     public bool isEnd;
     bool isPlaying;
     private void Start()
@@ -30,9 +30,10 @@ public class Sequences : MonoBehaviour
             Mainmenu.transform.position += Vector3.up * Time.deltaTime;
             if (Input.anyKeyDown)
             {
-                isPlaying=false;
+                isPlaying = false;
                 image.SetActive(false);
-                Mainmenu.transform.localPosition=Vector3.zero;
+                mouse.SetActive(true);
+                Mainmenu.transform.localPosition = Vector3.zero;
             }
         }
     }
@@ -47,7 +48,7 @@ public class Sequences : MonoBehaviour
         text.horizontalOverflow = HorizontalWrapMode.Overflow;
         text.text = "Until one day he saw the red doors to his salvation";
         yield return new WaitForSecondsRealtime(4f);
-        text.fontSize = 72;
+        text.fontSize = 70;
         text.horizontalOverflow = HorizontalWrapMode.Wrap;
         text.color = Color.black;
         text.text = "And now with the tommy gun to support him he is teady to save the enviroment and kill those plastic motherfuckers";

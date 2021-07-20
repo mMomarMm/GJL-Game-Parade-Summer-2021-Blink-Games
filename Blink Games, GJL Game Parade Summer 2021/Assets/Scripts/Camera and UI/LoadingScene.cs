@@ -9,7 +9,7 @@ public class LoadingScene : MonoBehaviour
     public static int LoadScene;
     AsyncOperation s;
     float progress;
-    string[] tips = new string[]{"Dying is bad", "Contamination is bad", "Plastic bags are made out of plastic",
+    string[] tips = new string[]{"Dying is bad", "If you contaminate i'll kill you", "Plastic bags are made out of plastic",
     "Apples taste like apples", "Game jams are streesfull", "Do you like the font?",
     "Subscribe to my youtube... pls", "If you get shot your health decreases", "A computer mouse isn't a real mouse",
     "Inalambric computer mouse should be call hamster", "Drinking water will hydrate you",
