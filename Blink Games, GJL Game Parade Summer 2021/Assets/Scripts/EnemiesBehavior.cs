@@ -15,11 +15,12 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
     Vector2 Scale;
     Player playerScript;
     bool attackMode = false; //has seen the player so it will be in attack mode
-    float Health = 10, maxbullets = 10, currentBullets;
+    float Health = 10, maxbullets = 10, currentBullets, horizontal, timeBtwShoots, startTimebtwShoots = .3f;
     public LayerMask Layers;
     LayerMask groundL, playerL;
     void Start()
     {
+        timeBtwShoots = 0;
         currentBullets = maxbullets;
         groundL = LayerMask.GetMask("Ground");
         playerL = LayerMask.GetMask("Player");
@@ -38,18 +39,42 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
         detectRange, Layers);
         if (attackMode)
         {
-            float horizontal = Mathf.Clamp(player.transform.position.x - transform.position.x, -1, 1);
+            if (player.transform.position.x - transform.position.x > 0)
+                horizontal = 1;
+            else
+            {
+                horizontal = -1;
+            }
 
             //shooting
             if (hit)
             {
+                //Jump
+                if (player.transform.position.y - transform.position.y >= .7f)
+                {
+                    if (Physics2D.Raycast(transform.position, Vector2.down, 1.27f, groundL))
+                    {
+                        animator.SetBool("Jumping", true);
+                        rb.velocity = new Vector2(rb.velocity.x, 8);
+                        StartCoroutine(Wait());
+                    }
+                }
                 //running
                 animator.SetBool("Walking", true);
                 rb.velocity = new Vector2(7 * horizontal, rb.velocity.y);
                 Scale.x = horizontal;
+                //Shoot
                 if (currentBullets > 0)
                 {
-                    StartCoroutine(Shoot());
+                    if (timeBtwShoots <= 0)
+                    {
+                        timeBtwShoots = startTimebtwShoots;
+                        Shoot();
+                    }
+                    else
+                    {
+                        timeBtwShoots -= Time.deltaTime;
+                    }
                 }
                 else
                 {
@@ -60,20 +85,10 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
             {
                 animator.SetBool("Shooting", false);
                 animator.SetBool("Reload", false);
-                //Jump
-                if (player.transform.position.y - transform.position.y >= .9f)
-                {
-                    if (Physics2D.Raycast(transform.position, Vector2.down, 1.27f, groundL))
-                    {
-                        animator.SetBool("Jumping", true);
-                        rb.velocity = new Vector2(rb.velocity.x, 9);
-                        StartCoroutine(Wait());
-                    }
-                }
             }
         }
         else if (hit && hit.collider.CompareTag("Player")) attackMode = true;
-        else { if(canPatrol) Patrol(); }
+        else { if (canPatrol) Patrol(); }
     }
     IEnumerator Wait()
     {
@@ -96,11 +111,10 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
         }
     }
 
-    IEnumerator Shoot()
+    void Shoot()
     {
         animator.SetBool("Reload", false);
         muzzleFlash.Play();
-        yield return new WaitForSeconds(.5f);
         currentBullets--;
         animator.SetBool("Shooting", true);
         GameObject b = Instantiate(bullet, shotPoint.position, transform.rotation);
@@ -128,8 +142,9 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
                     animator.SetBool(parameter.name, false);
             }
             transform.GetChild(0).position = new Vector3(transform.position.x, -.99f, transform.position.z);
-            for(int i=1; i< transform.childCount; i++){
-            Destroy(transform.GetChild(i).gameObject);
+            for (int i = 1; i < transform.childCount; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
             }
             animator.SetTrigger("Dead");
             Destroy(this);
@@ -138,5 +153,14 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
         {
             Health -= damage;
         }
+    }
+    public void Stop()
+    {
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            if (parameter.type == AnimatorControllerParameterType.Bool)
+                animator.SetBool(parameter.name, false);
+        }
+        Destroy(this);
     }
 }

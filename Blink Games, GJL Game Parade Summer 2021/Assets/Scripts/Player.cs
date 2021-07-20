@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, TakeDamage
 {
     public Vector2 crouchSize, weaponCrouchPos;
-    public GameObject sprite, weapon, restartButton;
+    public GameObject sprite, weapon, restartButton, mouse;
     public BoxCollider2D BodyCollider;
     public float runSpeed, JumpForce, DownForce;
     public static float dir, HealthPlayer; //looking direction
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour, TakeDamage
     List<GameObject> blood = new List<GameObject>();
     void Start()
     {
-        HealthPlayer = 100;
+        HealthPlayer = 150;
         ground = LayerMask.GetMask("Ground");
         weaponOgPos = new Vector2(0, -0.36f);
         an = GetComponentInChildren<Animator>();
@@ -97,10 +97,10 @@ public class Player : MonoBehaviour, TakeDamage
     }
     void HorizontalMov()
     {
+        rb.velocity = new Vector2(runSpeed * horizontal, rb.velocity.y);
         if (horizontal != 0)
         {
             an.SetBool("Running", true);
-            rb.velocity = new Vector2(runSpeed * horizontal, rb.velocity.y);
             dir = horizontal;
             Scale.x = dir;
             transform.localScale = Scale;
@@ -117,6 +117,7 @@ public class Player : MonoBehaviour, TakeDamage
         {
             //Dead, animator bool dead is iverted
             restartButton.SetActive(true);
+            mouse.SetActive(true);
             foreach (AnimatorControllerParameter parameter in an.parameters)
             {
                 if (parameter.type == AnimatorControllerParameterType.Bool)
@@ -129,7 +130,13 @@ public class Player : MonoBehaviour, TakeDamage
                 blood.Remove(o);
                 Destroy(o);
             }
-            Destroy(this);
+            GameObject[] en = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int pi = 0; pi < en.Length; pi++)
+            {
+                EnemiesBehavior e = en[pi].GetComponent<EnemiesBehavior>();
+                e.Stop();
+            }
+            Destroy(gameObject);
         }
         else
         {
