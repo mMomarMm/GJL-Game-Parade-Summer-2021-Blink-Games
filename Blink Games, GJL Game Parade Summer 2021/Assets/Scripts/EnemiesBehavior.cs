@@ -15,7 +15,7 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
     Vector2 Scale;
     Player playerScript;
     bool attackMode = false; //has seen the player so it will be in attack mode
-    float Health = 10, maxbullets = 10, currentBullets, horizontal, timeBtwShoots, startTimebtwShoots = .3f;
+    float Health = 10, maxbullets = 10, currentBullets, timeBtwShoots, startTimebtwShoots = .3f;
     public LayerMask Layers;
     LayerMask groundL, playerL;
     void Start()
@@ -39,12 +39,7 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
         detectRange, Layers);
         if (attackMode)
         {
-            if (player.transform.position.x - transform.position.x > 0)
-                horizontal = 1;
-            else
-            {
-                horizontal = -1;
-            }
+            float horizontal = Mathf.Sign(player.transform.position.x - transform.position.x);
 
             //shooting
             if (hit)
