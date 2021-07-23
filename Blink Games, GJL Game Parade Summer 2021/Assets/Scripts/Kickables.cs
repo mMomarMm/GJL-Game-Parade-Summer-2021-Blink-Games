@@ -30,10 +30,9 @@ public class Kickables : MonoBehaviour
                 Player playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
                 StartCoroutine(playerScript.Kill());
                 a.SetBool("Dead", true);
-                BoxCollider2D b = GetComponent<BoxCollider2D>();
-                CapsuleCollider2D p = GetComponent<CapsuleCollider2D>();
-                b.enabled = false;
-                p.enabled = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
                 Destroy(text);
                 Destroy(this);
             }

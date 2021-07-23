@@ -78,6 +78,7 @@ public class Player : MonoBehaviour, TakeDamage
             an.SetBool("Grounded", false);
             if (vertical == -1)
             {
+                an.SetBool("Running", false);
                 an.SetBool("Jumping", false);
                 an.SetBool("StartGlide", true);
                 an.SetBool("Gliding", true);

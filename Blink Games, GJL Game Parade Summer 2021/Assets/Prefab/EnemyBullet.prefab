@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 55
-  lifeTime: 1
+  lifeTime: 0.27
   damage: 3
   dir: 0
   blood: {fileID: 6733024523867695842, guid: 159813a94f8b70843bd9bdd424a060ff, type: 3}

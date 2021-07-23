@@ -14,7 +14,7 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
     Rigidbody2D rb;
     Vector2 Scale;
     Player playerScript;
-    bool attackMode = false; //has seen the player so it will be in attack mode
+    bool dead, attackMode = false; //has seen the player so it will be in attack mode
     float Health = 10, maxbullets = 10, currentBullets, timeBtwShoots, startTimebtwShoots = .3f;
     public LayerMask Layers;
     LayerMask groundL, playerL;
@@ -34,56 +34,59 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.localScale = Scale;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position,
-        detectRange, Layers);
-        if (attackMode)
+        if (!dead)
         {
-            float horizontal = Mathf.Sign(player.transform.position.x - transform.position.x);
-
-            //shooting
-            if (hit)
+            transform.localScale = Scale;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position,
+            detectRange, Layers);
+            if (attackMode)
             {
-                //Jump
-                if (player.transform.position.y - transform.position.y >= .7f)
+                float horizontal = Mathf.Sign(player.transform.position.x - transform.position.x);
+
+                //shooting
+                if (hit)
                 {
-                    if (Physics2D.Raycast(transform.position, Vector2.down, 1.27f, groundL))
+                    //Jump
+                    if (player.transform.position.y - transform.position.y >= .7f)
                     {
-                        animator.SetBool("Jumping", true);
-                        rb.velocity = new Vector2(rb.velocity.x, 8);
-                        StartCoroutine(Wait());
+                        if (Physics2D.Raycast(transform.position, Vector2.down, 1.27f, groundL))
+                        {
+                            animator.SetBool("Jumping", true);
+                            rb.velocity = new Vector2(rb.velocity.x, 8);
+                            StartCoroutine(Wait());
+                        }
                     }
-                }
-                //running
-                animator.SetBool("Walking", true);
-                rb.velocity = new Vector2(7 * horizontal, rb.velocity.y);
-                Scale.x = horizontal;
-                //Shoot
-                if (currentBullets > 0)
-                {
-                    if (timeBtwShoots <= 0)
+                    //running
+                    animator.SetBool("Walking", true);
+                    rb.velocity = new Vector2(7 * horizontal, rb.velocity.y);
+                    Scale.x = horizontal;
+                    //Shoot
+                    if (currentBullets > 0)
                     {
-                        timeBtwShoots = startTimebtwShoots;
-                        Shoot();
+                        if (timeBtwShoots <= 0)
+                        {
+                            timeBtwShoots = startTimebtwShoots;
+                            Shoot();
+                        }
+                        else
+                        {
+                            timeBtwShoots -= Time.deltaTime;
+                        }
                     }
                     else
                     {
-                        timeBtwShoots -= Time.deltaTime;
+                        StartCoroutine(Reload());
                     }
                 }
                 else
                 {
-                    StartCoroutine(Reload());
+                    animator.SetBool("Shooting", false);
+                    animator.SetBool("Reload", false);
                 }
             }
-            else
-            {
-                animator.SetBool("Shooting", false);
-                animator.SetBool("Reload", false);
-            }
+            else if (hit && hit.collider.CompareTag("Player")) attackMode = true;
+            else { if (canPatrol) Patrol(); }
         }
-        else if (hit && hit.collider.CompareTag("Player")) attackMode = true;
-        else { if (canPatrol) Patrol(); }
     }
     IEnumerator Wait()
     {
@@ -130,32 +133,41 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
         if (Health <= 0)
         {
             StartCoroutine(playerScript.Kill());
-            Instantiate(ammoDrop, transform.position, ammoDrop.transform.rotation);
-            foreach (AnimatorControllerParameter parameter in animator.parameters)
-            {
-                if (parameter.type == AnimatorControllerParameterType.Bool)
-                    animator.SetBool(parameter.name, false);
-            }
-            transform.GetChild(0).position = new Vector3(transform.position.x, -.99f, transform.position.z);
-            for (int i = 1; i < transform.childCount; i++)
-            {
-                Destroy(transform.GetChild(i).gameObject);
-            }
-            animator.SetTrigger("Dead");
-            Destroy(this);
+            StartCoroutine(Dead());
         }
         else
         {
             Health -= damage;
         }
     }
-    public void Stop()
+    IEnumerator Dead()
     {
         foreach (AnimatorControllerParameter parameter in animator.parameters)
         {
             if (parameter.type == AnimatorControllerParameterType.Bool)
                 animator.SetBool(parameter.name, false);
         }
+        transform.GetChild(0).position = new Vector3(transform.position.x, -.99f, transform.position.z);
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+        animator.SetTrigger("Dead");
+        dead = true;
+        yield return null;
+    }
+    public void Stop()
+    {
         Destroy(this);
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (dead)
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Instantiate(ammoDrop, transform.position, ammoDrop.transform.rotation);
+            rb.gravityScale = 0;
+            Destroy(this);
+        }
     }
 }

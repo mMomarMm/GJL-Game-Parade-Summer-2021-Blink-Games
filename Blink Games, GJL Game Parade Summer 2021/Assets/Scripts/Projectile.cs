@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour
     GameObject effect;
     void Start()
     {
-        lifeTime = 2;
         if (damage == 5)
         {
             dir = Player.dir;
