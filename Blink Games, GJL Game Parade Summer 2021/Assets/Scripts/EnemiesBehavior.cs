@@ -170,4 +170,22 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
             Destroy(this);
         }
     }
+    void hitDead()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        Instantiate(ammoDrop, transform.position, ammoDrop.transform.rotation);
+        rb.gravityScale = 0;
+        Destroy(this);
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (dead)
+        { hitDead(); }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (dead)
+        { hitDead(); }
+    }
 }
