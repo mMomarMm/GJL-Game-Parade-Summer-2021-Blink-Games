@@ -56,13 +56,9 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
                             StartCoroutine(Wait());
                         }
                     }
-                    //running
-                    animator.SetBool("Walking", true);
-                    rb.velocity = new Vector2(7 * horizontal, rb.velocity.y);
-                    Scale.x = horizontal;
-                    //Shoot
-                    if (currentBullets > 0)
+                    else if (currentBullets > 0)
                     {
+                        //Shoot
                         if (timeBtwShoots <= 0)
                         {
                             timeBtwShoots = startTimebtwShoots;
@@ -77,6 +73,10 @@ public class EnemiesBehavior : MonoBehaviour, TakeDamage
                     {
                         StartCoroutine(Reload());
                     }
+                    //running
+                    animator.SetBool("Walking", true);
+                    rb.velocity = new Vector2(7 * horizontal, rb.velocity.y);
+                    Scale.x = horizontal;
                 }
                 else
                 {
