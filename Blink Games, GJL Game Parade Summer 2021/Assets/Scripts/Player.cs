@@ -29,7 +29,10 @@ public class Player : MonoBehaviour, TakeDamage
 
     private void Update()
     {
-        vertical = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey(KeyCode.Space))
+            vertical = 1;
+        else vertical = Input.GetAxisRaw("Vertical");
+
         horizontal = Input.GetAxisRaw("Horizontal");
     }
     void FixedUpdate()
@@ -65,7 +68,7 @@ public class Player : MonoBehaviour, TakeDamage
             {
                 Stand();
                 //jump
-                if (vertical == 1 || Input.GetKeyDown(KeyCode.Space))
+                if (vertical == 1)
                 {
                     an.SetBool("Jumping", true);
                     an.SetBool("Running", false);

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class Kickables : MonoBehaviour
@@ -6,39 +7,49 @@ public class Kickables : MonoBehaviour
     int health = 3;
     bool inRange;
     public Text text;
+    public GameObject blood;
+    [SerializeField] List<Collider2D> colliders;
+
     private void Start()
     {
         a = GetComponentInChildren<Animator>();
+
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) inRange = true;
+        inRange = other.CompareTag("Player");
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) inRange = false;
+        inRange = !other.CompareTag("Player");
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G) && inRange)
+        if (a.GetCurrentAnimatorStateInfo(0).fullPathHash == 2027124095) //check if in idle animation
         {
-            health--;
-            text.text = health.ToString();
-            if (health <= 0)
+            if (Input.GetKeyDown(KeyCode.G) && inRange)
             {
-                Player playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-                StartCoroutine(playerScript.Kill());
-                a.SetBool("Dead", true);
-                gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-                Destroy(text);
-                Destroy(this);
-            }
-            else
-            {
-                a.SetTrigger("Knock");
+                health--;
+                text.text = health.ToString();
+                if (health <= 0)
+                {
+                    Player playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+                    StartCoroutine(playerScript.Kill());
+                    a.SetBool("Dead", true);
+                    foreach (Collider2D c in colliders)
+                    {
+                        c.enabled = false;
+                    }
+                    Destroy(text);
+                    Destroy(blood, 3f);
+                    blood.SetActive(true);
+                    Destroy(this);
+                }
+                else
+                {
+                    a.SetTrigger("Knock");
+                }
             }
         }
     }
